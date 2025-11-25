@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mix 98 - A Melhor Música</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Courier+Prime:wght@700&display=swap" rel="stylesheet">
+    
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              amarelo: '#FFD700',
+              vermelho: '#d10025',
+              'vermelho-escuro': '#99001b',
+              bgDark: '#0f0f18',
+              card: '#1a1a2e',
+            },
+            fontFamily: {
+              sans: ['Poppins', 'sans-serif'],
+              mono: ['Courier Prime', 'monospace'],
+            },
+            animation: {
+              'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'equalizer-1': 'eq 0.8s infinite ease-in-out',
+              'equalizer-2': 'eq 0.8s infinite ease-in-out 0.2s',
+              'equalizer-3': 'eq 0.8s infinite ease-in-out 0.4s',
+              'marquee': 'marquee 15s linear infinite',
+            },
+            keyframes: {
+              eq: {
+                '0%, 100%': { transform: 'scaleY(0.4)' },
+                '50%': { transform: 'scaleY(1)' },
+              },
+              marquee: {
+                '0%': { transform: 'translateX(100%)' },
+                '100%': { transform: 'translateX(-100%)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <script>
+      // Initialize dark mode from local storage or system preference
+      if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    </script>
+    <style>
+      /* Custom Range Slider Styling */
+      input[type=range] {
+        -webkit-appearance: none;
+        background: transparent;
+      }
+      
+      input[type=range]:focus {
+        outline: none;
+      }
+
+      /* Thumb Styling with Animation */
+      input[type=range]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        height: 14px;
+        width: 14px;
+        border-radius: 50%;
+        background: #FFD700;
+        border: 2px solid #d10025;
+        cursor: pointer;
+        margin-top: -5px; /* Centers thumb on track assuming ~4px track height, adjusted dynamically by flex center */
+        box-shadow: 0 0 6px rgba(255, 215, 0, 0.6);
+        transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                    background-color 0.2s, 
+                    box-shadow 0.2s,
+                    border-color 0.2s;
+        position: relative;
+        z-index: 2;
+      }
+
+      /* Hover Effect: Scale up and glow */
+      input[type=range]:hover::-webkit-slider-thumb {
+        transform: scale(1.3);
+        background: #fff;
+        box-shadow: 0 0 12px rgba(255, 215, 0, 1);
+        border-color: #d10025;
+      }
+
+      /* Active Effect: Click/Drag */
+      input[type=range]:active::-webkit-slider-thumb {
+        transform: scale(1.1);
+        background: #FFD700;
+        box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+      }
+
+      /* Track Styling Structure */
+      input[type=range]::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        border-radius: 999px;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
